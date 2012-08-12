@@ -1,0 +1,14 @@
+/* $Id: blank.css 31 2008-12-23 20:55:41Z Guite $ */
+
+.blankblock {
+  margin:0px;
+  padding:0px;
+  border:0px;
+  border-spacing:0px;
+  border-collapse:collapse;
+  width:100%;
+}
+
+p.blank {
+    text-align: center;
+}

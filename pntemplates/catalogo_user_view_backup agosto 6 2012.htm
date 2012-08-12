@@ -1,0 +1,71 @@
+<!--[* $Id: catalogo_user_main.htm 31 2008-12-23 20:55:41Z Guite $ *]-->
+
+<!--[pnpagesetvar name='description' value=$dats.0.longDescription]-->
+
+<script>var idActual = '<!--[$dat.id]-->';</script>
+
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jquery.min.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jquery-ui-1.8.1.custom.min.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jstorage.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/attention_box-min.js"]-->
+
+<!--[pnpageaddvar name="javascript" value=""]-->
+<script type="text/javascript" src="modules/catalogo/pnjavascript/catalogo.js"></script>
+
+	<script>
+		// Set up Sliders
+		// **************
+		$(function(){
+
+			$('#slider2').anythingSlider({
+				width               : 800,   // if resizeContent is false, this is the default width if panel size is not defined
+				height              : 500,   // if resizeContent is false, this is the default height if panel size is not defined
+				resizeContents      : false, // If true, solitary images/objects in the panel will expand to fit the viewport
+				startStopped        : true,  // If autoPlay is on, this can force it to start stopped
+				navigationFormatter : function(index, panel){ // Format navigation labels with text
+					return [
+					<!--[foreach from=$dats item='dat']-->
+					'<!--[$dat.shortname]-->',
+					<!--[/foreach]-->
+					][index - 1];
+				}
+			});
+
+		});
+	</script>
+
+<h1><!--[$dats.0.cat]--><!--[$dats.0.description]--></h1>
+
+<p class="longDescription"><!--[$dats.0.longDescription]--></p>
+
+<ul id="slider2">
+            
+<!--[foreach from=$dats item='dat' key='count']-->
+<li>	
+<div class="CatalogoContent">
+
+      <div class="CatalogoFoto" style="float: <!--[ position type='foto' key=$count ]-->;">
+      	<div class="CatalogoCentrar">
+            <ul>
+                <li style="height:<!--[$dat.height]-->">
+                    <img src="modules/catalogo/pnimages/fotos/<!--[$dat.code]-->.jpg" alt="<!--[$dat.name]-->"/>
+                 </li>
+            </ul>
+      	</div>
+      </div>
+      
+
+    <div class="CatalogoDescripcion" style="float: <!--[ position type='descripcion' key=$count ]-->;">
+      <h2 class="CatalogoTitulo"><!--[$dat.name]--></h2>
+      <ul>
+        <li class="left"><!--[ $dat.code|code ]--></li>
+      </ul>
+      <br /><br />
+      <p style="margin-bottom:0"><b><!--[ $dat.size|size ]--></b></p>
+     <!--[$dat.content]-->
+    </div>
+
+</div>
+</li>
+<!--[/foreach]-->
+</ul>

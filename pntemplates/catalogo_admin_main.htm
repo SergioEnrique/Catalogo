@@ -1,0 +1,39 @@
+<!--[*  $Id: blank_admin_menu.htm 31 2008-12-23 20:55:41Z Guite $  *]-->
+<!--[admincategorymenu]-->
+<div class="z-adminbox">
+  <h1><!--[gt text='Catálogo']--></h1>
+  <div class="z-menu"><!--[moduleadminlinks modname="catalogo"]--></div>
+</div>
+
+<div class="z-admincontainer">
+	<div class="z-adminpageicon"><img src="modules/formicula/pnimages/admin.gif" alt="<!--[gt text="Settings"]-->" /></div>
+
+	<h2>Administración del Catálogo</h2>
+    
+	<table class="z-admintable z-clearer">
+        <thead>
+            <tr>
+                <th><!--[gt text='Clave']--></th>
+                <th><!--[gt text='Nombre']--></th>
+                <th><!--[gt text='Precio']--></th>
+                <th><!--[gt text='Opciones']--></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--[foreach from=$dats item='dat' key='count']-->
+            <tr class="<!--[cycle values="z-odd,z-even" name=contacts]-->">
+                <td><!--[$dat.code]--></td>
+                <td><!--[$dat.name]--></td>
+                <td><!--[$dat.price]--></td>
+                <td>
+                    <a href="<!--[pnmodurl modname=catalogo type=admin func=edit id=$dat.id]-->" title="<!--[gt text="Editar Producto"]-->"><!--[pnimg src="xedit.gif" modname="core" set="icons/extrasmall" __alt="Editar Producto" ]--></a>
+                    &nbsp;&nbsp;<a href="<!--[pnmodurl modname=catalogo type=admin func=delete id=$dat.id]-->" title="<!--[gt text="Borrar Producto"]-->"><!--[pnimg src="14_layer_deletelayer.gif" modname="core" set="icons/extrasmall" __alt="Borrar Producto" ]--></a>
+                </td>
+            </tr>
+            <!--[foreachelse]-->
+            <tr class="z-admintableempty"><td colspan="5"><!--[gt text="No items found."]--></td></tr>
+            <!--[/foreach]-->
+        </tbody>
+    </table>
+    
+</div>

@@ -1,0 +1,88 @@
+@charset "utf-8";
+/* CSS Document */
+#Itemcontenedor{ 
+   text-align: left; 
+} 
+#Itemcabecera{ 
+   margin: 0 10px 10px 0;
+}
+#Itemcabecera h1 { 
+   margin: 0 300px 0 0;
+} 
+#Itemcabecera h3 { 
+   margin: 0 0 10px 0;
+   color: #77ADBD;
+}
+.Itemdescription{
+	text-align: left;
+	width: 500px;
+	font-size: 12px;	
+}
+.Itemdats {
+	float:right;
+	width:250px;
+	text-align:right;
+	text-align: right;
+	color: #77ADBD;
+	font-weight:bold;
+}
+.redesSociales{
+	position:absolute;
+	left:470px;
+	top:21px;
+	height: 23px;
+}
+.redesFlotantes{
+	float:left;
+	margin-right: 20px;
+}
+#Itemcuerpo{ 
+   margin: 10 0 10 0px; 
+} 
+#Itemlateral{ 
+   float:left; 
+} 
+#Itemderecho{ 
+   width:180px; 
+   float:right; 
+   margin-right: 10px;
+   text-align:right;
+} 
+#Itemprincipal{ 
+   margin-left: 295px;
+   margin-right: 220px; 
+}
+#Itemprincipal p{ 
+   text-align:justify;
+}
+#Itempie{ 
+   padding: 3 10 3 10px; 
+   text-align:right; 
+} 
+ul{
+	padding:0px;
+}
+li{
+	list-style-type: none;
+
+}
+li.left { 
+	float: left; 
+	color: #77ADBD;
+} 
+li.right { 
+	float: right; 
+	text-align: right;
+	color: #77ADBD;
+	margin-right:0px;
+}
+hr{
+	height: 3px;
+	background-color: #77ADBD;	
+	border: none;
+}
+p{
+	color: #757575;
+	font: normal 0.95em Helvetica, Arial, Verdana, sans-serif;
+	line-height: 1.3em;
+}

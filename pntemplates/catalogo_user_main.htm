@@ -1,0 +1,95 @@
+<!--[* $Id: catalogo_user_main.htm 31 2008-12-23 20:55:41Z Guite $ *]-->
+
+<!--[pnpagesetvar name='description' value=$dat.longDescription]-->
+
+<script>var idActual = '<!--[$dat.id]-->';</script>
+
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jquery.min.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jquery-ui-1.8.1.custom.min.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jstorage.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/attention_box-min.js"]-->
+
+<!--[pnpageaddvar name="javascript" value=""]-->
+<script type="text/javascript" src="modules/catalogo/pnjavascript/catalogo.js"></script>
+
+<div id="ZonaCotizacion" style="text-align:right; float:left; visibility:hidden; width:0px;">
+		Hola <span id="CotizacionNombre"></span><br />
+        <a href="#" onclick="cerrarSesion();return false;">Salir</a><br /><br />
+        <strong>Tu cotización:</strong><br /><br />
+    <spam id="CotizacionBox">
+    	
+    </spam>
+    	Sub-Total: <span id="CotizacionSuma"></span><br />
+        Descuento: <span id="CotizacionDescuento"></span><br />
+       <b>Total: </b><span id="CotizacionSubTotal"></span><br /><br />
+       
+       <div class="buttons" style="padding: 8px 0px 0px 10px;">
+			<button onClick="location.href='../../chekout'">Hacer pedido /<br /> Más información</button>
+       </div>
+       
+</div>
+
+<div id="Itemcontenedor" itemscope itemtype="http://schema.org/Product">
+	<div id="Itemcabecera" class="conredes"> 
+
+            <div class="redesSociales">
+                <div class="redesFlotantes">
+                        <!-- .Google + -->
+                            <g:plusone size="medium"></g:plusone>
+                        <!-- /.Google + -->
+                        <!-- .Twitter -->
+                        <a href="http://twitter.com/share" class="twitter-share-button" data-text="<!--[$dat.name]--><!--[$dat.description]--> - " data-count="horizontal" data-via="AgartiAgendas" data-lang="es">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                        <!-- /.Twitter -->
+                </div>
+                <div class="redesFlotantes">
+                        <!-- .Facebook -->
+                             <div id="fb-root"></div><script src="http://connect.facebook.net/es_LA/all.js#appId=134823909939103&amp;xfbml=1"></script><fb:like send="false" layout="button_count" width="110" show_faces="false" font=""></fb:like>
+                        <!-- /.Facebook -->
+                </div>
+            </div>
+            
+        	<h1><span itemprop="name"><!--[$dat.name]--></span></h1>
+            <hr />
+            <span class="Itemdats">
+            	<span itemprop="productID" content="sku:<!--[ $dat.code ]-->"><!--[ $dat.code|code ]--></span>
+            </span>
+            <span style="float:left; width:310px;">
+            	<a href="/catalogo/view/cat/<!--[$dat.catURL]-->"><h3><!--[$dat.cat]--></h3></a>
+            </span>
+            <div style=" text-align: center;  top: -20px; left: 320px; position: relative; width:300px">
+            	<a href="catalogo/main/item/<!--[$dat.past]-->" class="button">&lt; Anterior</a>
+                &nbsp;
+                <a href="catalogo/main/item/<!--[$dat.next]-->" class="button">Siguiente &gt;</a>
+            </div>
+            	<p class="Itemdescription"><span itemprop="description"><!--[$dat.longDescription]--></span></p>
+	</div> 
+
+	<div id="Itemcuerpo"> 
+    
+		<div id="Itemlateral">
+            <img itemprop="image" src="modules/catalogo/pnimages/fotos/<!--[$dat.code]-->.jpg" alt="<!--[$dat.name]-->" width="290px" />
+		</div> 
+        
+        <div id="Itemderecho" style="width:165px;">
+        
+			<span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+            	<meta itemprop="price" content="$<!--[$dat.price]-->" />
+                <meta itemprop="priceCurrency" content="MXN" /> 
+            </span>
+        
+        	<form name="CotizarAhora" action="javascript:cotizar('<!--[$dat.id]-->','<!--[$dat.code]-->','<!--[$dat.name]-->','<!--[$dat.price]-->')">
+                <label for="ItemCantidad<!--[$dat.code]-->" style="display:inline">Cantidad: </label>
+                <input type="number" min="0" max="99999" size="5" name="ItemCantidad<!--[$dat.code]-->" id="ItemCantidad<!--[$dat.code]-->" style="margin:0 5px 5px 0; display:inline;"/>
+				<button id="CotizarAhoraButton" type="submit">Cotizar Ahora</button>
+            </form>
+		</div> 
+        
+		<div id="Itemprincipal"  style="min-height:<!--[$dat.height]-->"> 
+        	<p style="margin-bottom:0"><b><!--[ $dat.size|size ]--></b></p>
+            <!--[$dat.content]-->
+		</div> 
+        
+	</div> 
+            
+        <div id="Itempie"></div> 
+</div>

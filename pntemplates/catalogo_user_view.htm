@@ -1,0 +1,71 @@
+<!--[* $Id: catalogo_user_main.htm 31 2008-12-23 20:55:41Z Guite $ *]-->
+
+<!--[pnpagesetvar name='description' value=$dats.0.longDescription]-->
+
+<script>var idActual = '<!--[$dat.id]-->';</script>
+
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jquery.min.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jquery-ui-1.8.1.custom.min.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jstorage.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/attention_box-min.js"]-->
+
+<!--[pnpageaddvar name="javascript" value=""]-->
+<script type="text/javascript" src="modules/catalogo/pnjavascript/catalogo.js"></script>
+
+<div id="ZonaCotizacion" style="text-align:right; float:left; visibility:hidden; width:0px;">
+		Hola <span id="CotizacionNombre"></span><br />
+        <a href="#" onclick="cerrarSesion();return false;">Salir</a><br /><br />
+        <strong>Tu cotización:</strong><br /><br />
+    <spam id="CotizacionBox">
+    	
+    </spam>
+    	Sub-Total: <span id="CotizacionSuma"></span><br />
+        Descuento: <span id="CotizacionDescuento"></span><br />
+       <b>Total: </b><span id="CotizacionSubTotal"></span><br /><br />
+       
+       <div class="buttons" style="padding: 8px 0px 0px 10px;">
+			<button onClick="location.href='../../chekout'">Hacer pedido /<br /> Más información</button>
+       </div>
+       
+</div>
+
+<div id="Itemcontenedor">
+
+    <div id="Itemcabecera"> 
+                <h1><!--[$dats.0.cat]--><!--[$dats.0.description]--></h1>
+                <hr />
+                <p class="longDescription"><!--[$dats.0.longDescription]--></p>
+    </div> 
+
+
+		<div style="min-height:263px; margin-right: 150px;"> 
+            <table width="100%">
+            	<!--[foreach from=$dats item='dat' key='count']-->
+                  <tr>
+                    <td style="width:100px; border-top: 1px solid rgba(0, 0, 0, 0.1);">
+                    	<a href="http://www.agarti.com.mx/catalogo/main/item/<!--[$dat.nameURL]-->">
+                        	<img src="modules/catalogo/pnimages/fotos/<!--[$dat.code]-->.jpg" height="100px" style="margin:8px;"  alt="<!--[$dat.name]-->" />
+                        </a>
+                    </td>
+                    <td style="border-top: 1px solid rgba(0, 0, 0, 0.1); vertical-align:top;">
+                        <div style="padding:8px;">
+                            <a href="http://www.agarti.com.mx/catalogo/main/item/<!--[$dat.nameURL]-->"><h3><!--[$dat.name]--></h3></a>
+                            <p><!--[ $dat.code|code ]--><br /><b><!--[ $dat.size|size ]--></b></p>
+                        </div>
+                    </td>
+                    <td style="width:165px; border-top: 1px solid rgba(0, 0, 0, 0.1);">
+                        <div style="width:165px; text-align:right">
+                            <form name="CotizarAhora" action="javascript:cotizar('<!--[$dat.id]-->','<!--[$dat.code]-->','<!--[$dat.name]-->','<!--[$dat.price]-->')">
+                                <label for="ItemCantidad<!--[ $dat.code ]-->" style="display:inline">Cantidad: </label>
+                                <input type="number" min="0" max="99999" size="5" name="ItemCantidad<!--[ $dat.code ]-->" id="ItemCantidad<!--[ $dat.code ]-->" style="margin:0 5px 5px 0; display:inline;"/>
+                                <button id="CotizarAhoraButton" type="submit">Cotizar Ahora</button>
+                            </form>
+                        </div>
+                    </td>
+                  </tr>
+              	<!--[/foreach]-->
+            </table>
+		</div>
+
+    
+</div>

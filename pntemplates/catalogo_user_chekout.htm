@@ -1,0 +1,141 @@
+<!--[* $Id: catalogo_user_chekout.htm 31 2008-12-23 20:55:41Z Guite $ *]-->
+
+<script>var idActual = '-1';</script>
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jquery.min.js"]-->
+<!--[pnpageaddvar name="javascript" value="modules/catalogo/pnjavascript/jstorage.js"]-->
+<!--[pnpageaddvar name="stylesheet" value="modules/catalogo/pnstyle/woocommerce.css"]-->
+
+<!--[pnpageaddvar name="javascript" value=""]-->
+<script type="text/javascript" src="modules/catalogo/pnjavascript/catalogo.js"></script>
+
+<div id="Itemcontenedor">
+
+    <div id="Itemcabecera"> 
+    	<h1>Hacer pedido / Solicitar más información</h1>
+        <hr />
+        <span style="float:left;">
+            <h3>Por favor, verifica que tus datos sean correctos</h3>
+        </span>
+    </div>
+
+	<div style="margin-top:23px;">
+    <!--[pnform]-->
+    <!--[insert name='getstatusmsg' class='pn-informationmsg']-->
+    <!--[pnformvalidationsummary]-->
+
+        <div id="Itemderecho">
+            <p class="form-row notes" id="order_comments_field">
+                <!--[pnformlabel for="oder_comments" __text='Notas adicionales' style="margin-top:4px;"]-->
+                <!--[pnformtextinput style="margin: 0px -2px 0px 0px; height: 199px; width: 450px;" textMode="Multiline" id="oder_comments" placeholder="Si desea agregar algún servicio a su pedido puede hacerlo aquí. Igualmente si requiere mayor información."]-->
+            </p>
+        </div>
+        
+		<div class="col2-set" id="customer_details">
+            <div class="col-1">
+    
+                <p class="form-row form-row-first" id="billing_name_field" style="width:99%;">
+                    <span style="float:left;">
+                        <!--[pnformlabel for="billing_name" __text='Nombre Completo']-->
+                    </span>
+                    <abbr class="required" title="Campo requerido">&nbsp;*</abbr>
+                    <!--[pnformtextinput cssClass="input-text" maxLength="30" id="billing_name" mandatory="true" placeholder="Nombre completo"]-->
+                </p>	
+        
+        		<p class="form-row form-row-first" id="billing_address_field">
+                    <span style="float:left;">
+                        <!--[pnformlabel for="billing_address" __text='Dirección']-->
+                    </span>
+                    <abbr class="required" title="Campo requerido">&nbsp;*</abbr>
+                    <!--[pnformtextinput cssClass="input-text" maxLength="100" id="billing_address" mandatory="true" placeholder="Dirección"]-->
+                </p>	
+
+                <p class="form-row form-row-last" id="billing_city_field">
+                	<span style="float:left;">
+                        <!--[pnformlabel for="billing_city" __text='Ciudad']-->
+                    </span>
+                    <abbr class="required" title="Campo requerido">&nbsp;*</abbr>
+                    <!--[pnformtextinput cssClass="input-text" maxLength="30" id="billing_city" mandatory="true" placeholder="Ciudad"]-->
+				</p>
+        
+        		<p class="form-row form-row-first" id="billing_state_field">
+                	<span style="float:left;">
+                        <!--[pnformlabel for="billing_state" __text='Estado']-->
+                    </span>
+                    <abbr class="required" title="Campo requerido">&nbsp;*</abbr>
+                    <!--[pnformtextinput cssClass="input-text" maxLength="30" id="billing_state" mandatory="true" placeholder="Estado"]-->
+                </p>	
+        
+                <p class="form-row form-row-last update_totals_on_change" id="billing_postcode_field">
+                    <span style="float:left;">
+                        <!--[pnformlabel for="billing_postcode" __text='Código Postal']-->
+                    </span>
+                    <abbr class="required" title="Campo requerido">&nbsp;*</abbr>
+                    <!--[pnformintinput cssClass="input-text" maxLength="6" id="billing_postcode" mandatory="true" placeholder="Código Postal" ]-->
+                </p>
+        
+        		<p class="form-row form-row-first" id="billing_email_field">
+                	<span style="float:left;">
+                        <!--[pnformlabel for="billing_email" __text='Correo electrónico']-->
+                    </span>
+                    <abbr class="required" title="Campo requerido">&nbsp;*</abbr>
+                    <!--[pnformemailinput cssClass="input-text" maxLength="60" id="billing_email" mandatory="true" placeholder="Correo electrónico" ]-->
+				</p>	
+
+				<p class="form-row form-row-last" id="billing_phone_field">
+                	<span style="float:left;">
+                        <!--[pnformlabel for="billing_phone" __text='Teléfono']-->
+                    </span>
+                    <abbr class="required" title="Campo requerido">&nbsp;*</abbr>
+                    <!--[pnformtextinput cssClass="input-text" maxLength="20" id="billing_phone" mandatory="true" placeholder="Teléfono" ]-->
+				</p> 
+
+			</div>
+		</div>
+        
+        <h3 id="order_review_heading">Tu pedido:</h3>
+        <div id="order_review">
+        
+        <table class="shop_table">
+            <thead>
+                <tr>
+                    <th class="product-name">Producto</th>
+                    <th class="" width="90px">Precio Unitario</th>
+                    <th class="product-quantity" width="90px" style="text-align:center;">Cantidad</th>
+                    <th class="product-total" width="90px" style="text-align:center;">Totales</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr class="cart-subtotal">
+                    <th colspan="3" style="text-align:right;"><strong>Suma</strong></th>
+                    <td><span class="amount" id="CotizacionSuma"></span></td>
+                </tr>
+                <tr class="shipping">
+                    <th colspan="3" style="text-align:right;"><strong>Descuento</strong></th>
+                    <td><span class="amount" id="CotizacionDescuento"></span></td>
+                </tr>
+                <tr class="total">
+                    <th colspan="3" style="text-align:right;"><strong>Sub-Total</strong></th>
+                    <td><strong><span class="amount" id="CotizacionSubTotal"></span></strong></td>
+                </tr>
+                <tr class="total">
+                    <th colspan="3" style="text-align:right;"><strong>IVA</strong></th>
+                    <td><strong><span class="amount" id="CotizacionIVA"></span></strong></td>
+                </tr>     
+                <tr class="total">
+                    <th colspan="3" style="text-align:right;"><strong>Total</strong></th>
+                    <td><strong><span class="amount" id="CotizacionTotal"></span></strong></td>
+                </tr>
+            </tfoot>
+            <tbody id="products"></tbody>
+		</table>
+        
+        <span style="visibility:hidden"><!--[pnformtextinput textMode="Multiline" id="cotizacion"]--></span>
+        
+        <div style="float:right;">
+            <!--[pnformbutton id="submit" class="button alt" commandName="submit" __text="Solicitar pedido / información"]-->
+		</div>
+        
+		</div>	
+	<!--[/pnform]-->
+    </div>
+</div>

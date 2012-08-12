@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Active State */
+div.anythingSlider.activeSlider .anythingWindow {
+	margin-top: 80px;
+}
+.longDescription{
+	font-size: 14px;
+	margin: 0 57px 10px 57px;
+}
+.CatalogoContent{
+	width:800px;
+}
+.CatalogoTitulo {
+	border-bottom: 3px solid #77ADBD;
+}
+hr{ 
+  background-color: #77ADBD;
+  height: 2px;
+  width: 100%;
+}
+.CatalogoDescripcion {
+	font-family: Arial, Helvetica, sans-serif;
+	width:450px;
+	display: table;
+}
+.CatalogoFoto {
+	width:350px;
+	display: table;
+}
+.CatalogoCentrar{
+	#position: absolute;
+	#top: 50%;
+	display: table-cell;
+	vertical-align: middle;
+}
+ul{
+	padding:0px;
+}
+li{
+	list-style-type: none;
+
+}
+li.left { 
+	float: left; 
+	color: #77ADBD;
+} 
+li.right { 
+	text-align: right;
+	color: #77ADBD;
+	margin-right:0px;
+	margin-bottom:1px;
+} 
+p {
+	color: #757575;
+	font: normal 0.95em Helvetica, Arial, Verdana, sans-serif;
+	line-height: 1.3em;
+}
